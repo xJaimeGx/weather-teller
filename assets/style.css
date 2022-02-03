@@ -1,0 +1,24 @@
+header {
+    font-family: fantasy;
+    margin-top: 35px;
+}
+.container-fluid {
+    font-family: fantasy;
+    font-size: 20px;
+}
+
+#search-city {
+    font-family: sans-serif;
+}
+
+#history {
+    font-family: sans-serif;
+}
+
+#clear-history {
+    font-family: sans-serif;
+}
+
+#future-header {
+    color: white;
+}
