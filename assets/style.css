@@ -24,5 +24,13 @@ header {
 }
 
 .forecast {
-    text-size
+    font-size: small;
+}
+
+#city-name {
+    font-size: larger;
+}
+
+p {
+    font-size: large;
 }
