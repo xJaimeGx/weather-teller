@@ -9,6 +9,7 @@ function initPage() {
     const currentHumidityEl = document.getElementById("humidity");
     const currentWindEl = document.getElementById("wind-speed");
     const currentUVEl = document.getElementById("UV-index");
+
     var todayweatherEl = document.getElementById("current-weather");
     var fivedayEl = document.getElementById("future-header");
     
@@ -30,6 +31,7 @@ function initPage() {
                 const day = currentDate.getDate();
                 const month = currentDate.getMonth() + 1;
                 const year = currentDate.getFullYear();
+
                 nameEl.innerHTML = response.data.name + " (" + month + "/" + day + "/" + year + ") ";
                 let weatherPic = response.data.weather[0].icon;
                 currentPicEl.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherPic + "@2x.png");
@@ -38,7 +40,7 @@ function initPage() {
                 currentHumidityEl.innerHTML = "Humidity: " + response.data.main.humidity + "%";
                 currentWindEl.innerHTML = "Wind Speed: " + response.data.wind.speed + " MPH";
                 
-                // Get UV Index
+                // Get the UV index
                 let lat = response.data.coord.lat;
                 let lon = response.data.coord.lon;
                 let UVQueryURL = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey + "&cnt=1";
@@ -46,7 +48,7 @@ function initPage() {
                     .then(function (response) {
                         let UVIndex = document.createElement("span");
                         
-                        // When UV Index is good, shows green, when ok shows yellow, when bad shows red
+                        // When UV index is good, show green. When ok, show yellow. When bad, show red.
                         if (response.data[0].value < 4 ) {
                             UVIndex.setAttribute("class", "badge badge-success");
                         }
